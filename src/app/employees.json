@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Nitesh",
+        "country": "India",
+        "salary": 10000,
+        "designation": "Developer",
+        "email": "n@gmail.com"
+    },
+    {
+        "id": 2,
+        "name": "Dev",
+        "country": "USA",
+        "salary": 20000,
+        "designation": "Developer",
+        "email": "d@gmail.com"
+    },
+    {
+        "id": 3,
+        "name": "Satish",
+        "country": "Canada",
+        "salary": 30000,
+        "designation": "Developer",
+        "email": "s@gmail.com"
+    },
+    {
+        "id": 4,
+        "name": "Harsh",
+        "country": "Srilanka",
+        "salary": 40000,
+        "designation": "Developer",
+        "email": "h@gmail.com"
+    },
+    {
+        "id": 5,
+        "name": "Rahul",
+        "country": "Srilanka",
+        "salary": 40000,
+        "designation": "Developer",
+        "email": "h@gmail.com"
+    },
+    {
+        "id": 6,
+        "name": "Shree",
+        "country": "Srilanka",
+        "salary": 40000,
+        "designation": "Developer",
+        "email": "h@gmail.com"
+    }
+]

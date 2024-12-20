@@ -1,0 +1,95 @@
+<div class="container mt-3">
+    <h1 class="mb-4">Employee Form</h1>
+    <div>
+        <form [formGroup]="employeeForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="name">Full Name</label>
+                    <input type="text" placeholder="Enter Full Name" class="form-control" formControlName="name">
+                    <div class="error-msg">
+                        <span class="error" *ngIf="employeeForm.get('name')?.hasError('required') && 
+                              (employeeForm.get('name')?.dirty || employeeForm.get('name')?.touched || submitted)">
+                              Name is Required
+                        </span>
+                        <span class="error" *ngIf="employeeForm.get('name')?.hasError('pattern') &&
+                              (employeeForm.get('name')?.dirty || employeeForm.get('name')?.touched || submitted)">
+                              Only Alphabetical Character are Required
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter Email" class="form-control" formControlName="email">
+                    <div class="error-msg">
+                        <span class="error" *ngIf="employeeForm.get('email')?.hasError('required') && 
+                              (employeeForm.get('email')?.dirty || employeeForm.get('email')?.touched || submitted)">
+                              Email is Required
+                        </span>
+                        <span class="error" *ngIf="employeeForm.get('email')?.hasError('email') &&
+                              (employeeForm.get('email')?.dirty || employeeForm.get('email')?.touched || submitted)">
+                              Valid Email is Required
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mt-3">
+                    <label for="id">ID</label>
+                    <input type="text" placeholder="Enter Id" class="form-control" formControlName="id">
+                    <div class="error-msg">
+                        <span class="error" *ngIf="employeeForm.get('id')?.hasError('required') &&
+                              (employeeForm.get('id')?.dirty || employeeForm.get('id')?.touched || submitted)">
+                              ID is Required
+                        </span>
+                        <span class="error" *ngIf="employeeForm.get('id')?.hasError('pattern') && 
+                              (employeeForm.get('id')?.dirty || employeeForm.get('id')?.touched || submitted)">
+                              ID Should Not Be Zero OR Negative Numbers
+                        </span>
+                        <span class="error" *ngIf="employeeForm.get('id')?.hasError('maxlength') && 
+                              (employeeForm.get('id')?.dirty || employeeForm.get('id')?.touched || submitted)">
+                              ID Should Be only 2 characters only
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <label for="salary">Salary</label>
+                    <input type="number" placeholder="Enter Salary" class="form-control" formControlName="salary" 
+                           (keypress)="checkOperator($event)">
+                    <div class="error-msg">
+                        <span class="error" *ngIf="employeeForm.get('salary')?.hasError('required') && 
+                              (employeeForm.get('salary')?.dirty || employeeForm.get('salary')?.touched || submitted)">
+                              Salary is Required
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mt-3">
+                    <label for="designation">Designation</label>
+                    <input type="text" placeholder="Enter Designation" class="form-control" formControlName="designation">
+                    <div class="error-msg">
+                        <span class="error" *ngIf="employeeForm.get('designation')?.hasError('required') && 
+                              (employeeForm.get('designation')?.dirty || employeeForm.get('designation')?.touched || submitted)">
+                              Designation is Required
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <label for="country">Country</label>
+                    <input type="text" placeholder="Enter Country" class="form-control" formControlName="country">
+                    <div class="error-msg">
+                        <span class="error"
+                            *ngIf="employeeForm.get('country')?.hasError('required') && 
+                              (employeeForm.get('country')?.dirty || employeeForm.get('country')?.touched || submitted)">
+                              Country is Required
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary mt-5" (click)="onSubmit()">
+            {{employeeId ? 'update': 'Add'}}
+        </button>
+        <button type="button" class="btn btn-secondary mx-3 mt-5" routerLink="/employees">Cancel</button>
+    </div>
+</div>

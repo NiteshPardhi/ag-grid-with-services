@@ -1,0 +1,27 @@
+<div class="container mt-1">
+    <h1 class="mb-3">Ag-Grid Angular With Services</h1>
+
+    <input type="search" placeholder="Search...." class="form-control" (keyup)="search($event)">
+
+    <button class="btn btn-info mt-3" routerLink="/employees-form">
+        <i class="bi bi-plus-square text-light"></i> New Employees
+    </button>
+
+    <button class="btn btn-danger mx-3 mt-3" (click)="deleteSelctedRow()"><i class="bi bi-trash-fill text-light"></i> Selected Row</button>
+
+    <!-- <button class="btn btn-success mx-1 mt-3" (click)="exportExcel()">Download Excel</button> -->
+
+    <ag-grid-angular
+        style="width: 100%; height: 350px; margin-top: 7px;" 
+        class="ag-theme-alpine-dark"
+        id="excel-table" 
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        [pagination]="true" 
+        [paginationPageSize]="page_size"
+        (gridReady)="onGridReady($event)"
+        [rowSelection]="'multiple'"
+        (rowSelected)="onRowSelected($event)">
+    </ag-grid-angular>
+</div>
+
